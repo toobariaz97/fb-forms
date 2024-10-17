@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.PhoneInputInput{
+  background-color: transparent !important;
+  border: none !important;
+  padding: 10px !important;
+  border-bottom: 1px solid white !important;
+}
+.PhoneInputInput:focus{
+  background-color: transparent !important;
+  /* border: none !important; */
+  padding: 10px !important;
+  border-bottom: 1px solid white !important;
+}
+.PhoneInputCountrySelect{padding: 10px !important;
+background-color: #171717;
+width: 100%;
+} 
+.PhoneInputCountry{
+  border-bottom: 1px solid white !important;
+  
+}
