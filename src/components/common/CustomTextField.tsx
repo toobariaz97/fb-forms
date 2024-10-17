@@ -18,7 +18,6 @@ interface CustomTxtFieldProps {
   as?: string;
   component?: string | React.ComponentType<FieldProps>;
   className?: string;
-  [key: string]: any;
 }
 
 const CustomTxtField: React.FC<CustomTxtFieldProps> = (props) => {
@@ -27,7 +26,6 @@ const CustomTxtField: React.FC<CustomTxtFieldProps> = (props) => {
     label,
     placeholder,
     errorClassName,
-    inputClassName,
     labelClassName,
     mainClassName,
     type = "text",

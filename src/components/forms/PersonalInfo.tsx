@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormConfig } from "@/config/forms";
-import { X, ChevronDown, Info } from "lucide-react";
+import { X, Info } from "lucide-react";
 import { Form, Formik } from "formik";
 import { object, string } from "yup";
 import CustomTxtField from "../common/CustomTextField";
@@ -27,9 +27,9 @@ export const PersonalInfo = () => {
     phoneNumber: "506311705",
     workPhoneNumber: "563132842",
   };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
   const handleClear = (field: string) => {
     setFormData({ ...formData, [field]: "" });
@@ -51,14 +51,13 @@ export const PersonalInfo = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        {({ isSubmitting }) => (
+        {({}) => (
           <Form>
             <div className="space-y-4">
               <div>
                 <div className="relative">
                   <CustomTxtField
                     type="text"
-                    id="fullName"
                     name="fullName"
                     value={formData.fullName}
                     label="Full name"
@@ -78,7 +77,6 @@ export const PersonalInfo = () => {
                 <div className="relative">
                   <CustomTxtField
                     type="email"
-                    id="email"
                     name="email"
                     value={formData.email}
                   />
@@ -108,7 +106,7 @@ export const PersonalInfo = () => {
                     name="phoneNumber"
                     className="  bg-transparent w-full"
                     value={phone}
-                    onChange={setPhone}
+                    onChange={() => setPhone}
                   />
                   {/* <div className="relative w-24 mr-2">
                     <select className="w-full bg-gray-800 rounded px-3 py-2 text-white appearance-none">
@@ -151,7 +149,7 @@ export const PersonalInfo = () => {
                     name="phoneNumber"
                     className="  bg-transparent w-full"
                     value={phone}
-                    onChange={setPhone}
+                    onChange={()=>setPhone}
                   />
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
