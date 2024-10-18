@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Formik, Form } from "formik";
+import React from "react";
 import CustomTxtField from "../common/CustomTextField";
 import { PhoneNumberField } from "../common/PhoneNumberField";
-// import { CustomErrorMessage } from "../common/CustomErrorMessage";
 import { X } from "lucide-react";
+// import { CustomErrorMessage } from "../common/CustomErrorMessage";
 
 export const PersonalInfo = ({
   setFormData,
@@ -14,13 +13,12 @@ export const PersonalInfo = ({
   const handleClear = (field: string) => {
     setFormData({ ...formData, [field]: "" });
   };
-  const [phone, setPhone] = useState("");
   return (
     <div className="bg-[#262626] text-white p-6 rounded-lg max-w-md mx-auto w-[450px]">
       <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
 
       <div className="space-y-4">
-        <div>
+        <div className="relative">
           <CustomTxtField
             type="text"
             name="fullName"
@@ -29,18 +27,18 @@ export const PersonalInfo = ({
             onChange={handleChange}
             placeholder="John Ella"
           />
-          {/* {formData.fullName && (
-              <button
-                type="button"
-                onClick={() => handleClear("fullName")}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
-              >
-                <X className="w-4 h-4 text-gray-400" />
-              </button>
-            )} */}
+          {formData.fullName && (
+            <button
+              type="button"
+              onClick={() => handleClear("fullName")}
+              className="absolute right-2 top-1/2 "
+            >
+              <X className="w-4 h-4 text-gray-400" />
+            </button>
+          )}
           {/* <CustomErrorMessage name="fullName" /> */}
         </div>
-        <div>
+        <div className="relative">
           <CustomTxtField
             label="Email"
             type="email"
@@ -49,15 +47,15 @@ export const PersonalInfo = ({
             onChange={handleChange}
             placeholder="abc@gmail.com"
           />
-          {/* {formData.email && (
-              <button
-                type="button"
-                onClick={() => handleClear("email")}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
-              >
-                <X className="w-4 h-4 text-gray-400" />
-              </button>
-            )} */}
+          {formData.email && (
+            <button
+              type="button"
+              onClick={() => handleClear("email")}
+              className="absolute right-2 top-1/2 "
+            >
+              <X className="w-4 h-4 text-gray-400" />
+            </button>
+          )}
           {/* <CustomErrorMessage name="email" /> */}
         </div>
         <div>
@@ -68,7 +66,7 @@ export const PersonalInfo = ({
             Phone number
           </label>
           <PhoneNumberField
-            setPhone={setPhone}
+            // setPhone={setPhone}
             value={formData.phoneNumber}
             handleChange={handleChange}
           />

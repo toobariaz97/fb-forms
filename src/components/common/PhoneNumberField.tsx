@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import CountryCode from "country-codes-list";
 
@@ -6,23 +7,23 @@ interface Country {
   countryCallingCode: string;
 }
 
-export const PhoneNumberField = ({ setPhone, value, handleChange }) => {
+export const PhoneNumberField = ({ value, handleChange }) => {
   const [code, setCode] = useState("+971"); // Set default country code here
-  const [phoneNumber, setPhoneNumber] = useState(code + value);
-  setPhone(phoneNumber);
+  // const [phoneNumber, setPhoneNumber] = useState(code + value);
+  // setPhone(phoneNumber);
   const [countryList, setCountryList] = useState<Country[]>([]);
 
-  const validateNumber = (value: string) => {
-    let error;
-    const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+  // const validateNumber = (value: string) => {
+  //   let error;
+  //   const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
 
-    if (!value) {
-      error = "Phone number is required";
-    } else if (!phoneRegExp.test(value)) {
-      error = "Invalid phone number format";
-    }
-    return error;
-  };
+  //   if (!value) {
+  //     error = "Phone number is required";
+  //   } else if (!phoneRegExp.test(value)) {
+  //     error = "Invalid phone number format";
+  //   }
+  //   return error;
+  // };
 
   useEffect(() => {
     const defaultCountryCode = CountryCode.all().map((item: any) => ({

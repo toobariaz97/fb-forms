@@ -104,7 +104,7 @@ export const SuccessModal = ({ data, isShow, toggleModal }) => {
                   <p>{data.preferredUnit}</p>
                   <p>{data.investmentBudget}</p>
                   <p>
-                    location: {location.lat}, {location.lon}
+                    location: {location?.lat}, {location?.lon}
                   </p>
 
                   <p>User Agent: {browserInfo.userAgent}</p>

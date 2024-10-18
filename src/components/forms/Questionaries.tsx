@@ -1,5 +1,3 @@
-import { FormConfig } from "@/config/forms";
-import { Form, Formik } from "formik";
 import React, { useState } from "react";
 
 export const Questionaries = ({ questions, handleChange, error }) => {

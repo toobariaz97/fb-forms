@@ -1,5 +1,3 @@
-import { Field, FieldProps } from "formik";
-
 interface CustomTxtFieldProps {
   error?: boolean;
   label?: string;
@@ -16,7 +14,7 @@ interface CustomTxtFieldProps {
   options?: Array<{ label: string; value: string }>;
   value?: string;
   as?: string;
-  component?: string | React.ComponentType<FieldProps>;
+  // component?: string | React.ComponentType<FieldProps>;
   className?: string;
   handleChange?: () => void;
 }

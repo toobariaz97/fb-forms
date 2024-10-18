@@ -5,7 +5,6 @@ import { FormConfig } from "@/config/forms";
 import { ChevronLeft } from "lucide-react";
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import { PersonalInfoValidation } from "./schemas";
 import { SuccessModal } from "@/components/common/modals/SuccessModal";
 
 export default function SurveyForm() {
@@ -57,7 +56,6 @@ export default function SurveyForm() {
       }
       setProgressBar(33);
       console.log({ formData });
-      PersonalInfoValidation;
     }
     if (step === 2) {
       if (preferredUnit === "") {
@@ -76,6 +74,18 @@ export default function SurveyForm() {
       console.log({ investmentBudget });
       // Final step: submit the form
       setShow(true);
+      setLoading(true);
+      setFormData({
+        ...formData,
+        email: "",
+        fullName: "",
+        nationality: "",
+        phoneNumber: "",
+      });
+      setPreferredUnit("");
+      setInvestmentBudget("");
+
+      redirect("/");
       // try {
       //   setLoading(true);
       //   const response = await fetch("/api/submit-form", {
