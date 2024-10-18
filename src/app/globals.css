@@ -30,12 +30,14 @@ body {
   border: none !important;
   padding: 10px !important;
   border-bottom: 1px solid white !important;
+  width: 100%;
 }
 .PhoneInputInput:focus{
   background-color: transparent !important;
-  /* border: none !important; */
+  border: none !important;
   padding: 10px !important;
   border-bottom: 1px solid white !important;
+
 }
 .PhoneInputCountrySelect{padding: 10px !important;
 background-color: #171717;

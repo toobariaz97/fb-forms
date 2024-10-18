@@ -18,6 +18,7 @@ interface CustomTxtFieldProps {
   as?: string;
   component?: string | React.ComponentType<FieldProps>;
   className?: string;
+  handleChange?: () => void;
 }
 
 const CustomTxtField: React.FC<CustomTxtFieldProps> = (props) => {
@@ -31,22 +32,25 @@ const CustomTxtField: React.FC<CustomTxtFieldProps> = (props) => {
     type = "text",
     errorMessage,
     name,
-    component,
     className,
+    handleChange,
+    value,
     ...rest
   } = props;
 
   return (
     <div className={className || `form-group ${mainClassName}`}>
       {label && (
-        <label className={`${labelClassName} mb-1 block text-gray-700`}>
+        <label className={`${labelClassName} mb-1 block text-gray-200`}>
           {label}
         </label>
       )}
-      <Field
+      <input
         name={name}
         type={type}
-        component={component}
+        // component={component}
+        value={value}
+        onChange={handleChange}
         placeholder={placeholder}
         className={`w-full px-1 py-2 bg-transparent border-b `}
         {...rest}

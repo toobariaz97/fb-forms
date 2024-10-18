@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "country-codes-list": "^1.6.11",
     "formik": "^2.4.6",
     "lucide-react": "^0.453.0",
     "next": "14.2.15",

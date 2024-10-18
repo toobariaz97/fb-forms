@@ -642,6 +642,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+country-codes-list@^1.6.11:
+  version "1.6.11"
+  resolved "https://registry.yarnpkg.com/country-codes-list/-/country-codes-list-1.6.11.tgz#fd8241c9a833447677a1b8efdd0e1cd19a1fc176"
+  integrity sha512-MsHoJ83tGyv9tFspeI8yHBomiTH4rruHxdWhNWGG9d1ykXgLyawh/VykmYPH5KqduY+9Q2RUNlL2/KGkXJqANA==
+
 country-flag-icons@^1.5.11:
   version "1.5.13"
   resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.5.13.tgz#963596b7fca6602b4b389a4e7b711ef3f33cc0b1"
