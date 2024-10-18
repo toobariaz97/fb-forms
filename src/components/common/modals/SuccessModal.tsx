@@ -4,21 +4,21 @@ export const SuccessModal = ({ data, isShow, toggleModal }) => {
   const [location, setLocation] = useState<{ lat: number; lon: number } | null>(
     null
   );
-  const fetchIp = () => {
-    try {
-      const res = fetch("/api/main", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // body:JSON.stringify()
-      });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  fetchIp();
+  // const fetchIp = () => {
+  //   try {
+  //     const res = fetch("/api/main", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       // body:JSON.stringify()
+  //     });
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // fetchIp();
   const [browserInfo, setBrowserInfo] = useState({
     userAgent: "",
     language: "",

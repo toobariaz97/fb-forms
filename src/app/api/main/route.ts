@@ -2,8 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const ip = req.headers["x-forwarded-for"];
-  console.log(ip);
+  console.log({ headers: req.headers["x-forwarded-for"] });
+  //   const ip = req.headers["x-forwarded-for"];
 
   // Fetch geolocation data based on the IP address
   //   const response = await fetch(`http://ip-api.com/json/${ip}`, {});
