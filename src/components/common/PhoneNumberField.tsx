@@ -7,24 +7,19 @@ interface Country {
   countryCallingCode: string;
 }
 
-export const PhoneNumberField = ({ value, handleChange }) => {
-  const [code, setCode] = useState("+971"); // Set default country code here
-  // const [phoneNumber, setPhoneNumber] = useState(code + value);
-  // setPhone(phoneNumber);
+export const PhoneNumberField = ({
+  phone,
+  setFormData,
+  setPhone,
+  value,
+  handleChange,
+  formData,
+}) => {
+  const [code, setCode] = useState("+971"); // Default country code
+  const [phoneNumber, setPhoneNumber] = useState(value);
   const [countryList, setCountryList] = useState<Country[]>([]);
 
-  // const validateNumber = (value: string) => {
-  //   let error;
-  //   const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
-
-  //   if (!value) {
-  //     error = "Phone number is required";
-  //   } else if (!phoneRegExp.test(value)) {
-  //     error = "Invalid phone number format";
-  //   }
-  //   return error;
-  // };
-
+  // Load country codes list on component mount
   useEffect(() => {
     const defaultCountryCode = CountryCode.all().map((item: any) => ({
       countryCode: item.countryCode,
@@ -32,6 +27,17 @@ export const PhoneNumberField = ({ value, handleChange }) => {
     }));
     setCountryList(defaultCountryCode);
   }, []);
+
+  // Handle phone number validation (only numbers allowed)
+  const validateNumber = (input: string) => {
+    handleChange();
+    const sanitizedInput = input.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+    setPhoneNumber(sanitizedInput);
+    setPhone(code + phoneNumber);
+    console.log({ phone });
+    setFormData({ ...formData, phoneNumber: phone });
+    console.log({ formData });
+  };
 
   return (
     <div className="flex w-100">
@@ -57,8 +63,9 @@ export const PhoneNumberField = ({ value, handleChange }) => {
           name="phoneNumber"
           className="bg-transparent border-none w-full PhoneInputInput"
           type="text"
-          value={value}
-          onChange={handleChange}
+          value={phoneNumber}
+          onChange={(e) => validateNumber(e.target.value)}
+          placeholder="Enter phone number"
         />
       </div>
     </div>

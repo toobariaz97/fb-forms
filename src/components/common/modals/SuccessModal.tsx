@@ -1,58 +1,11 @@
-import React, { useEffect, useState } from "react";
-
-export const SuccessModal = ({ data, isShow, toggleModal }) => {
-  const [location, setLocation] = useState<{ lat: number; lon: number } | null>(
-    null
-  );
-  // const fetchIp = () => {
-  //   try {
-  //     const res = fetch("/api/main", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       // body:JSON.stringify()
-  //     });
-  //     console.log(res);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // fetchIp();
-  const [browserInfo, setBrowserInfo] = useState({
-    userAgent: "",
-    language: "",
-    platform: "",
-    cookiesEnabled: false,
-  });
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLocation({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        });
-      });
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }, []);
-  useEffect(() => {
-    setBrowserInfo({
-      userAgent: navigator.userAgent,
-      language: navigator.language,
-      platform: navigator.platform,
-      cookiesEnabled: navigator.cookieEnabled,
-    });
-  }, []);
-
+export const SuccessModal = ({ isShow, toggleModal }) => {
   return (
     <>
       {isShow && (
         <div
           id="popup-modal"
           tabIndex={-1}
-          className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden"
+          // className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden"
         >
           <div className="relative p-4 w-full max-w-md max-h-full">
             <div className="relative bg-[#262626] rounded-lg shadow dark:bg-gray-700">
@@ -94,10 +47,11 @@ export const SuccessModal = ({ data, isShow, toggleModal }) => {
                     d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                   />
                 </svg>
-                <h1 className="text-white">User Info</h1>
+                <h1 className="text-white font-bold text-xl">Success</h1>
                 <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                  Thank you for your Submission.
                   {/* Are you sure you want to delete this product? */}
-                  <p>{data.fullName}</p>
+                  {/* <p>{data.fullName}</p>
                   <p>{data.email}</p>
                   <p>{data.phoneNumber}</p>
                   <p>{data.nationality}</p>
@@ -112,7 +66,7 @@ export const SuccessModal = ({ data, isShow, toggleModal }) => {
                   <p>Platform: {browserInfo.platform}</p>
                   <p>
                     Cookies Enabled: {browserInfo.cookiesEnabled ? "Yes" : "No"}
-                  </p>
+                  </p> */}
                 </h3>
                 {/* <button
                   onClick={() => {

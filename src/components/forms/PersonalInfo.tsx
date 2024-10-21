@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomTxtField from "../common/CustomTextField";
 import { PhoneNumberField } from "../common/PhoneNumberField";
 import { X } from "lucide-react";
@@ -13,6 +13,7 @@ export const PersonalInfo = ({
   const handleClear = (field: string) => {
     setFormData({ ...formData, [field]: "" });
   };
+  const [phone, setPhone] = useState("");
   return (
     <div className="bg-[#262626] text-white p-6 rounded-lg max-w-md mx-auto w-[450px]">
       <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
@@ -66,9 +67,12 @@ export const PersonalInfo = ({
             Phone number
           </label>
           <PhoneNumberField
-            // setPhone={setPhone}
+            setPhone={setPhone}
             value={formData.phoneNumber}
             handleChange={handleChange}
+            phone={phone}
+            setFormData={setFormData}
+            formData={formData}
           />
           {/* <CustomErrorMessage name="phoneNumber" /> */}
         </div>
